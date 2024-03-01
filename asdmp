@@ -1,0 +1,7 @@
+#!/bin/bash
+
+v=$1
+f=${v::-2}
+
+clang -g -std=c11 -Wall -Wextra -Wpedantic -c $f.c -o ./obj/odmp_$f.o
+objdump -S obj/odmp_$f.o

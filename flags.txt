@@ -1,0 +1,46 @@
+--protection
+PROT_NONE:  0b000
+PROT_READ:  0b001
+PROT_WRITE: 0b010
+PROT_EXEC:  0b100
+
+--map flags
+MAP_SHARED:    0b000001   Share mapping with all process mapped to this object. Chages made will be written to file
+MAP_PRIVATE:   0b000010   Mapping not shared with other processes. Changes made will not be written to file
+MAP_FIXED:     0b010000   System is forced to use exact mapping address specified. Fail if not possible
+MAP_ANONYMOUS: 0b100000   Not connected to any files
+MAP_ANON:      0b100000   |
+
+--file flags
+O_RDONLY:         00                    0b000  Only read the file
+O_WRONLY:         01                    0b001  Only write the file
+O_RDWR:           02                    0b010  Read and write the file
+O_CREAT:        0100              0b001000000  Create file if it does not exist
+O_APPEND:      02000           0b010000000000  Append to file
+O_ASYNC:      020000        0b010000000000000
+O_CLOEXEC:  02000000  0b010000000000000000000
+O_DIRECTORY: 0040000        0b100000000000000
+O_DSYNC:      010000        0b001000000000000
+O_EXCL:         0200              0b010000000
+O_NOCTTY:       0400              0b100000000
+O_NOFOLLOW:  0100000     0b001000000000000000
+O_NONBLOCK:    04000           0b100000000000
+O_NDELAY:      04000           0b100000000000
+O_TRUNC:       01000           0b001000000000 Truncate content of file if exists and write permission
+
+--file permisssions
+S_IRWXU    00700    0b111000000 user (file owner) has read, write, and execute permission
+S_IRUSR    00400    0b100000000 user has read permission
+S_IWUSR    00200    0b010000000 user has write permission
+S_IXUSR    00100    0b001000000 user has execute permission
+S_IRWXG    00070    0b000111000 group has read, write, and execute permission
+S_IRGRP    00040    0b000100000 group has read permission
+S_IWGRP    00020    0b000010000 group has write permission
+S_IXGRP    00010    0b000001000 group has execute permission
+S_IRWXO    00007    0b000000111 others have read, write, and execute permission
+S_IROTH    00004    0b000000100 others have read permission
+S_IWOTH    00002    0b000000010 others have write permission
+S_IXOTH    00001    0b000000001 others have execute permission
+S_ISUID  0004000 0b100000000000 set-user-ID bit
+S_ISGID  0002000 0b010000000000 set-group-ID bit (see inode(7)).
+S_ISVTX  0001000 0b001000000000 sticky bit (see inode(7)).
